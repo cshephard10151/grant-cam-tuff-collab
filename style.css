@@ -1,0 +1,12 @@
+body {
+  font-family: "Google Sans Code", Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: bolder;
+  font-family: "Google Sans Code", Helvetica, sans-serif;
+  border-radius: 0;
+  border: 2px, solid, black;
+}
