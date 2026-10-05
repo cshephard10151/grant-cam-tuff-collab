@@ -1,10 +1,11 @@
 body {
   font-family: "Google Sans Code", Helvetica, sans-serif;
   overflow: hidden;
-  background-image: url('ezgif.com-gif-maker_1.gif');
+/*  background-image: url('ezgif.com-gif-maker_1.gif'); 
   background-repeat: repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: cover;*/
+  background-color:rgb(28, 34, 27)
 }
 
 .button {
@@ -14,3 +15,22 @@ body {
   border-radius: 0;
   border: 2px, solid, black;
 }
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  /* Prevents the shadow from blocking clicks on buttons or links underneath */
+  pointer-events: none; 
+  
+  /* Creates a massive, soft inner shadow with rounded corners */
+  box-shadow: inset 0 0 200px 40px rgba(0, 0, 0, 1); 
+  
+  /* Optional: Adds an actual rounded frame look if desired */
+  border-radius: 0px; 
+}
+
