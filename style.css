@@ -1,6 +1,10 @@
 body {
   font-family: "Google Sans Code", Helvetica, sans-serif;
   overflow: hidden;
+  background-image: url('ezgif.com-gif-maker_1.gif');
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .button {
