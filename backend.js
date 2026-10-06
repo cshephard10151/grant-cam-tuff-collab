@@ -22,30 +22,24 @@ input_field_2.classList.add("green_border")
 input_field_3.classList.add("blue_border")
 
 function hide_input_fields(bool) { //true to hide elements false to show
+    openrgb = !bool
     input_field_1.hidden = bool, input_field_2.hidden = bool, input_field_3.hidden = bool;
     color_confirmation_button.hidden = bool;
+    if (bool) custom_color_button.textContent = "Custom Color";
+    else custom_color_button.textContent = "Back";
 }
 
 custom_color_button.onclick = function() {
     if (!openrgb) {
-        openrgb = true;
         hide_input_fields(false);
-        custom_color_button.textContent = "Back";
     } else if (openrgb) {
-        openrgb = false;
         hide_input_fields(true);
-        custom_color_button.textContent = "Custom Color"
-        input_field_1.value = null
-        input_field_2.value = null
-        input_field_3.value = null
     }
 }
 
 color_confirmation_button.onclick = function() {
     change_bg_color(input_field_1.value, input_field_2.value, input_field_3.value);
     hide_input_fields(true);
-    openrgb = false;
-    custom_color_button.textContent = "Custom Color"
 }
 
 function change_bg_color(redVal, greenVal, blueVal) {
