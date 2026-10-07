@@ -80,6 +80,92 @@ function toggle_group_class(list, class_name) {
     });
 }
 
+
+
+//---------------------------------------------------------------------------------------------------------------------- NEW CONSOLE CODE
+
+let input = document.getElementById("input");
+let button = document.getElementById("button");
+
+input.addEventListener("keydown", function(e){
+    if (e.key === "Enter"){
+        e.preventDefault();
+        button.click();
+    }
+})
+
+input.focus();
+
+
+button.onclick = function(){
+
+    function isNumeric(val) { 
+        return !isNaN(parseFloat(val)) && isFinite(val);
+    }
+
+    if (input.value != ''){
+        for (let i = 9; i>1; i--){
+            document.getElementById(`${i}`).textContent = document.getElementById(`${i-1}`).textContent;
+            
+            if (document.getElementById(`${i}`).textContent === ''){
+                document.getElementById(`${i}`).textContent = "\u00A0";
+    
+            }
+        }
+
+
+        const pattern = /^\([^,]+,\s*[^,]+,\s*[^,]+\)$/;
+
+        if (pattern.test(input.value)){
+            let[red, green, blue] = input.value.replace(/[()]/g, '').split(',').map(item => item.trim());
+            console.log(red, green, blue);
+            if(isNumeric(red) && isNumeric(green) && isNumeric(blue)){
+                change_bg_color(red, green, blue);
+            }
+        }
+
+
+        document.getElementById("1").textContent = "> "+input.value;
+        if (document.getElementById("1").textContent === ''){
+            document.getElementById("1").textContent = "\u00A0";
+        }
+
+        if (input.value == "help"){
+            document.getElementById("4").textContent = "> help";
+            document.getElementById("3").textContent = "------------------------------------";
+            document.getElementById("2").textContent = "settings for settings";
+            document.getElementById("1").textContent ='"help" for help';
+        }
+        if (input.value == "settings"){
+            document.getElementById("3").textContent = "> settings";
+            document.getElementById("2").textContent = "------------------------------------";
+            document.getElementById("1").textContent = "(a, b, c) to change background color";
+        }
+
+        if (input.value == "Y"){
+            document.getElementById("9").textContent = "> Y";
+            document.getElementById("8").textContent = "------------------------------------";
+            document.getElementById("7").textContent = "\u00A0";
+            document.getElementById("6").textContent = "\u00A0";
+            document.getElementById("5").textContent = "\u00A0";
+            document.getElementById("4").textContent = "\u00A0";
+            document.getElementById("3").textContent = "\u00A0";
+            document.getElementById("2").textContent = "\u00A0";
+            document.getElementById("1").textContent = "\u00A0";
+        }
+
+        if (input.value == "default"){
+            change_bg_color(28, 34, 27);
+        }
+
+        input.value = '';
+
+    }
+    else if (input.value ===''){
+    }
+}
+
+
 // Initialize animation variables outside of the loop
 let time = 0; 
 let animationId = null;
