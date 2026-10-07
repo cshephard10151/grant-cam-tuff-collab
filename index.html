@@ -11,19 +11,21 @@
     <h1 id="text">text</h1>
     
 
-    <div>
-    <!--<button id="button1" class="button">sus ahh BUTTON</button> -->
-    <button id="style_button_1" class="button">Default</button>
-    <button id="style_button_2" class="button">Deep Blue</button>
-    <button id="style_button_3" class="button">Pink</button>
-
-    <button id="custom_color_button" class="button">Custom Color</button>
-
-    <input id="bg color" class="input_box">
-    <input id="bg1 color" class="input_box">
-    <input id="bg2 color" class="input_box">
-    <button id="color_confirmation" class="button">Confirm</button>
-   <!-- <textarea id="custom_color_picker" class=""-->
+    <div class="color_menu_container">
+        <button id="color_menu_button" class="button">Open Background Color Menu</button>
+            <div  id="color_menu" class="color_menu">
+                <!--color menu buttons-->
+                <button id="style_button_1" class="button">Default</button>
+                <button id="style_button_2" class="button">Deep Blue</button>
+                <button id="style_button_3" class="button">Pink</button>
+                <button id="custom_color_button" class="button">Custom Color</button>
+                <div class="color_chooser_menu">
+                    <input id="bg color" class="input_box">
+                    <input id="bg1 color" class="input_box">
+                    <input id="bg2 color" class="input_box">
+                    <button id="color_confirmation" class="button">Confirm</button>
+                </div>
+            </div>
     </div>
     <script src="backend.js"></script>
 </body>

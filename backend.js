@@ -1,6 +1,3 @@
-const PI = 3.14159;
-const GRAVITY = 9.81;
-
 // Properly declare your elements
 //const button = document.getElementById("button1");
 // const textElement = document.getElementById("text");
@@ -9,13 +6,25 @@ const style_button_2 = document.getElementById("style_button_2");
 const style_button_3 = document.getElementById("style_button_3");
 const link = document.createElement('link');
 
+
+const color_menu_div = document.getElementById("color_menu"); //every element corresponding the color menu
+color_menu_div.classList.toggle("hidden_element"); //keeps hidden initially
+//toggle_group_class(color_menu_elements, "child")
+const color_menu_toggle = document.getElementById("color_menu_button");
+
+color_menu_toggle.onclick = function() {
+    color_menu_div.classList.toggle("hidden_element");
+    if (color_menu_div.classList.contains("hidden_element")) color_menu_toggle.textContent = "Open Background Color Menu";
+    else color_menu_toggle.textContent = "Close Background Color Menu";
+}
+
 let input_field_1 = document.getElementById("bg color"); //user's custom rgb
 let input_field_2 = document.getElementById("bg1 color");
 let input_field_3 = document.getElementById("bg2 color");
 let color_confirmation_button = document.getElementById("color_confirmation");
 let custom_color_button = document.getElementById("custom_color_button");
 
-openrgb = false
+let openrgb = false
 hide_input_fields(true);
 input_field_1.classList.add("red_border")
 input_field_2.classList.add("green_border")
@@ -38,7 +47,12 @@ custom_color_button.onclick = function() {
 }
 
 color_confirmation_button.onclick = function() {
-    change_bg_color(input_field_1.value, input_field_2.value, input_field_3.value);
+    const i1 = input_field_1
+    const i2 = input_field_2
+    const i3 = input_field_3;
+    if (!(i1.value == "" || i2.value == "" || i3.value == "")) {
+        change_bg_color(input_field_1.value, input_field_2.value, input_field_3.value);
+    }
     hide_input_fields(true);
 }
 
@@ -59,6 +73,12 @@ style_button_2.onclick = function() {
 style_button_3.onclick = function() {
     change_bg_color(217, 113, 179);
 };
+
+function toggle_group_class(list, class_name) {
+    list.forEach(element => {
+        element.classList.toggle(class_name);
+    });
+}
 
 // Initialize animation variables outside of the loop
 let time = 0; 
