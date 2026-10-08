@@ -106,11 +106,11 @@ button.onclick = function(){
 
 
     if (input.value != ''){
-        for (let i = 0; i < 5; i++){
-            text_line_group[i].textContent = text_line_group[i + 1].textContent;
+        for (let i = 9; i > 1; i--){
+            document.getElementById(i).textContent = document.getElementById(i-1).textContent;
             
-            if (text_line_group[i].textContent === ''){
-                text_line_group[i].textContent = "\u00A0";
+            if (document.getElementById(i).textContent === ''){
+                document.getElementById(i).textContent = "\u00A0";
             }
         }
 
@@ -127,17 +127,18 @@ button.onclick = function(){
             }
         }
 
-        text_line_group[0].textContent = "> " + input.value;
+        document.getElementById(1).textContent = "> " + input.value;
 
         if (text_line_group[0].textContent === ''){
             text_line_group[0].textContent = "\u00A0";
         }
 
         if (input.value == "help"){
-            text_line_group[5].textContent = "> help";
-            text_line_group[6].textContent = "------------------------------------";
-            text_line_group[7].textContent = '"settings" for settings';
-            text_line_group[8].textContent ='"help" for help';
+            text_line_group[4].textContent = "> help";
+            text_line_group[5].textContent = "------------------------------------";
+            text_line_group[6].textContent = '"settings" for settings';
+            text_line_group[7].textContent ='"help" for help';
+            text_line_group[8].textContent = '"clear" for clearing message history.'
         }
         if (input.value == "settings"){
             text_line_group[6].textContent = "> settings";
@@ -146,13 +147,19 @@ button.onclick = function(){
         }
 
         if (input.value == "Y"){
-            text_line_group[1].textContent = "> Y";
-            text_line_group[2].textContent = "------------------------------------";
-            set_blank_lines();
+            text_line_group[0].textContent = "> Y";
+            text_line_group[1].textContent = "------------------------------------";
+            for (let i = 2; i<10; i++){
+                text_line_group[i].textContent = "\u00A0";
+            }
         }
 
         if (input.value == "default"){
             change_bg_color(28, 34, 27);
+        }
+
+        if (input.value == "clear"){
+            set_blank_lines();
         }
 
         input.value = '';
@@ -161,45 +168,8 @@ button.onclick = function(){
 };
 
 function set_blank_lines() {
-    for (let i = 3; i < text_line_group.length; i++) {
+    for (let i = 0; i < text_line_group.length; i++) {
         text_line_group[i].textContent = "\u00A0";
     }
 }
 
-
-// Initialize animation variables outside of the loop
-let time = 0; 
-let animationId = null;
-
-
-
-/*button.onclick = function() {
-    console.log("test");
-    
-    // 1. Correctly update the DOM text content on the screen
-    if (textElement.textContent === "Hello JavaScript") {
-        textElement.textContent = "Goodbye JavaScript";
-    } else {
-        textElement.textContent = "Hello JavaScript";
-    }
-    
-    // Make sure the button is set up for absolute moving
-    button.style.position = "absolute";
-
-    // 2. Prevent stacking duplicate loops if clicked multiple times
-    if (animationId) clearInterval(animationId);
-
-    // 3. Use setInterval instead of while(true) + setTimeout
-    animationId = setInterval(() => {
-        // Calculate a visible wave movement (e.g., amplitude of 50px, centered at 100px)
-        const newTop = 75 + Math.sin(time) * 50;
-        const newRight = screen.width - 200 + Math.cos(time) * 50;
-        
-        // Apply the position with pixels unit ("px")
-        button.style.top = newTop + "px";
-        button.style.right = newRight +"px";
-        
-        // Increment time smoothly
-        time += 0.1; 
-    }, 16); // ~60 frames per second
-} */

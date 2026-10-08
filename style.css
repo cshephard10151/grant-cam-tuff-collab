@@ -40,6 +40,7 @@ body {
   background-position: center center;
   background-size: cover;*/
   background-color: rgb(var(--bg-color-red), var(--bg-color-green), var(--bg-color-blue));
+  cursor: url('cursor.png'), pointer;
 }
 
 .button {
@@ -58,6 +59,7 @@ body {
   font-weight: bolder;
   font-family: "Google Sans Code", Helvetica, sans-serif;
   border-radius: 1;
+  margin-top: 30vw;
 }
 .red_border {
   border: 2px solid #b90f34;
@@ -71,22 +73,40 @@ body {
 
 .text{
     font-size: medium;
+    font-weight: 600;
     color: rgb(0, 170, 0);
     margin: 0 0 0 20vw;
 }
 
+.input_container {
+  display: flex;
+  align-items: center;
+  margin-left: 20vw;
+  width: 60vw;
+}
+
+.arrow {
+  font-size: medium;
+  font-weight: 400;
+  color: rgb(0, 170, 0);
+  font-family: "IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
+  margin-right: 8px;
+
+}
+
 .input {
   font-size: medium;
-  position: static;
-  width: 60vw;
-  margin-left: 20vw;
+  font-weight: 400;
+  flex: 1;
+  min-width: 0;
   outline: 0;
   font-family: "IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
-  background-color: rgba(255, 255, 255, 0);
-  border-color: rgba(255, 255, 255, 0);
+  background-color: transparent;
+  border: none;
   color: rgb(0, 170, 0);
   caret-shape: block;
 }
+
 
 body::after {
   content: "";
