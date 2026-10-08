@@ -40,10 +40,11 @@
 
 
 body {
+  /*cursor: url('cursor.png'), auto;*/
   font-family:"IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
   overflow: hidden;
   background-color: rgb(var(--bg-color-red), var(--bg-color-green), var(--bg-color-blue));
-  cursor: url('cursor.png'), pointer;
+
 }
 
 .button {
@@ -70,14 +71,14 @@ body {
     font-weight: 600;
     color: rgb(0, 170, 0);
     margin:0 0 0 20vw;
-    margin-left: 148px !important; /* FIX TEH SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
+    margin-left: 148px !important; /* FIX THE SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
 } 
 
 .input_container {
   display: flex;
   position: static;
   align-items: center;
-  margin-left: 225px; /* FIX TEH SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
+  margin-left: 225px; /* FIX THE SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
   margin-top: 20vh;
   width: 60vw;
 }
