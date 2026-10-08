@@ -3,13 +3,11 @@
   --bg-color-green: 34;
   --bg-color-blue: 27;
 }
-
 .color_menu_container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .color_menu {
   display: flex;
   flex-direction: row;
@@ -19,7 +17,6 @@
 
   position: relative;
 }
-
 .color_chooser_menu {
   display: flex;
   flex-direction: row;
@@ -31,14 +28,20 @@
   transform: translateX(-50%);
   margin-top: 5px;
 }
+.red_border {
+  border: 2px solid #b90f34;
+}
+.green_border {
+  border: 2px solid #56c90e;
+}
+.blue_border {
+  border: 2px solid #0c5cc5;
+}
+
 
 body {
-  font-family: "Google Sans Code", Helvetica, sans-serif;
+  font-family:"IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
   overflow: hidden;
-/*  background-image: url('ezgif.com-gif-maker_1.gif'); 
-  background-repeat: repeat;
-  background-position: center center;
-  background-size: cover;*/
   background-color: rgb(var(--bg-color-red), var(--bg-color-green), var(--bg-color-blue));
   cursor: url('cursor.png'), pointer;
 }
@@ -61,27 +64,21 @@ body {
   border-radius: 1;
   margin-top: 30vw;
 }
-.red_border {
-  border: 2px solid #b90f34;
-}
-.green_border {
-  border: 2px solid #56c90e;
-}
-.blue_border {
-  border: 2px solid #0c5cc5;
-}
 
 .text{
     font-size: medium;
     font-weight: 600;
     color: rgb(0, 170, 0);
-    margin: 0 0 0 20vw;
-}
+    margin:0 0 0 20vw;
+    margin-left: 148px !important; /* FIX TEH SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
+} 
 
 .input_container {
   display: flex;
+  position: static;
   align-items: center;
-  margin-left: 20vw;
+  margin-left: 225px; /* FIX TEH SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
+  margin-top: 20vh;
   width: 60vw;
 }
 
