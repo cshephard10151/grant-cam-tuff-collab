@@ -96,6 +96,7 @@ input.addEventListener("keydown", function(e){
 
 input.focus();
 
+let text_line_group = document.querySelectorAll(".text_line"); //make sure to fix rest of code
 
 button.onclick = function(){
 
@@ -103,55 +104,51 @@ button.onclick = function(){
         return !isNaN(parseFloat(val)) && isFinite(val);
     }
 
+
     if (input.value != ''){
-        for (let i = 9; i>1; i--){
-            document.getElementById(`${i}`).textContent = document.getElementById(`${i-1}`).textContent;
+        for (let i = 0; i < 5; i++){
+            text_line_group[i].textContent = text_line_group[i + 1].textContent;
             
-            if (document.getElementById(`${i}`).textContent === ''){
-                document.getElementById(`${i}`).textContent = "\u00A0";
-    
+            if (text_line_group[i].textContent === ''){
+                text_line_group[i].textContent = "\u00A0";
             }
         }
-
 
         const pattern = /^\([^,]+,\s*[^,]+,\s*[^,]+\)$/;
 
         if (pattern.test(input.value)){
+
             let[red, green, blue] = input.value.replace(/[()]/g, '').split(',').map(item => item.trim());
+
             console.log(red, green, blue);
+
             if(isNumeric(red) && isNumeric(green) && isNumeric(blue)){
                 change_bg_color(red, green, blue);
             }
         }
 
+        text_line_group[0].textContent = "> " + input.value;
 
-        document.getElementById("1").textContent = "> "+input.value;
-        if (document.getElementById("1").textContent === ''){
-            document.getElementById("1").textContent = "\u00A0";
+        if (text_line_group[0].textContent === ''){
+            text_line_group[0].textContent = "\u00A0";
         }
 
         if (input.value == "help"){
-            document.getElementById("4").textContent = "> help";
-            document.getElementById("3").textContent = "------------------------------------";
-            document.getElementById("2").textContent = "settings for settings";
-            document.getElementById("1").textContent ='"help" for help';
+            text_line_group[5].textContent = "> help";
+            text_line_group[6].textContent = "------------------------------------";
+            text_line_group[7].textContent = '"settings" for settings';
+            text_line_group[8].textContent ='"help" for help';
         }
         if (input.value == "settings"){
-            document.getElementById("3").textContent = "> settings";
-            document.getElementById("2").textContent = "------------------------------------";
-            document.getElementById("1").textContent = "(a, b, c) to change background color";
+            text_line_group[6].textContent = "> settings";
+            text_line_group[7].textContent = "------------------------------------";
+            text_line_group[8].textContent = "(R, G, B) to change background color";
         }
 
         if (input.value == "Y"){
-            document.getElementById("9").textContent = "> Y";
-            document.getElementById("8").textContent = "------------------------------------";
-            document.getElementById("7").textContent = "\u00A0";
-            document.getElementById("6").textContent = "\u00A0";
-            document.getElementById("5").textContent = "\u00A0";
-            document.getElementById("4").textContent = "\u00A0";
-            document.getElementById("3").textContent = "\u00A0";
-            document.getElementById("2").textContent = "\u00A0";
-            document.getElementById("1").textContent = "\u00A0";
+            text_line_group[1].textContent = "> Y";
+            text_line_group[2].textContent = "------------------------------------";
+            set_blank_lines();
         }
 
         if (input.value == "default"){
@@ -161,7 +158,11 @@ button.onclick = function(){
         input.value = '';
 
     }
-    else if (input.value ===''){
+};
+
+function set_blank_lines() {
+    for (let i = 3; i < text_line_group.length; i++) {
+        text_line_group[i].textContent = "\u00A0";
     }
 }
 

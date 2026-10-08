@@ -69,35 +69,24 @@ body {
   border: 2px solid #0c5cc5;
 }
 
-
-
-
-  
 .text{
     font-size: medium;
     color: rgb(0, 170, 0);
-    margin-left: 20vw;
+    margin: 0 0 0 20vw;
 }
 
-.input{
+.input {
   font-size: medium;
   position: static;
   width: 60vw;
   margin-left: 20vw;
-  outline: 0px;
+  outline: 0;
   font-family: "IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
   background-color: rgba(255, 255, 255, 0);
-  border-color: rgba(255, 255, 255, 0); ;
+  border-color: rgba(255, 255, 255, 0);
   color: rgb(0, 170, 0);
   caret-shape: block;
-  
 }
-
-.button_enter{
-  margin-left: 200vw;
-
-}
-
 
 body::after {
   content: "";
