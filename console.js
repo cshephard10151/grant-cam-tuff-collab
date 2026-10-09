@@ -32,7 +32,7 @@ current_user_line = 5;
 button.onclick = function(){
     
     if (input.value === "clear") {
-        clear_lines(true && !isHomeScreen);
+        clear_lines(!isHomeScreen);
         return;
     }
 
@@ -50,6 +50,7 @@ button.onclick = function(){
 
 
     if (input.value != '' && recognized_words.includes(input.value)) {
+        text_line_group[3].textContent = "\u00A0";
         text_line_group[3].classList.remove("red_text");
         text_line_group[3].classList.add("green_text");
 
