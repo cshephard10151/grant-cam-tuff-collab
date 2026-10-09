@@ -1,6 +1,7 @@
 let input = document.getElementById("input");
 let button = document.getElementById("button");
-let recognized_words = ["back", "settings", "help", "default", "Y", "N"];
+let recognized_words = ["back", "settings", "help", "default", "Y", "N", "clear"];
+let isHomeScreen = true;
 
 
 input.addEventListener("keydown", function(e){
@@ -31,7 +32,8 @@ current_user_line = 5;
 button.onclick = function(){
     
     if (input.value === "clear") {
-        clear_lines(true);
+        clear_lines(true && !isHomeScreen);
+        return;
     }
 
     function isNumeric(val) { 
@@ -44,13 +46,12 @@ button.onclick = function(){
         }
         if (clearLastInput) text_line_group[8].textContent = "\u00A0";
         input.value = "";
-        return;
     }
 
 
     if (input.value != '' && recognized_words.includes(input.value)) {
-        text_line_group[4].classList.remove("red_text");
-        text_line_group[4].classList.add("green_text");
+        text_line_group[3].classList.remove("red_text");
+        text_line_group[3].classList.add("green_text");
 
         const pattern = /^\([^,]+,\s*[^,]+,\s*[^,]+\)$/;
 
@@ -125,6 +126,8 @@ button.onclick = function(){
         }
         if (input.value.toLowerCase() == "settings"){
             settings_screen();
+            clear_lines(false);
+            return;
         }
         if (input.value.toLowerCase() == "back") {
             home_screen();
@@ -151,10 +154,12 @@ button.onclick = function(){
         document.getElementById(1).textContent = get_time_line();
         
         clear_line(false);
+        if (input.value != "") isHomeScreen = false;
     } else {
-        text_line_group[4].classList.remove("green_text");
-        text_line_group[4].classList.add("red_text");
-        text_line_group[4].textContent = "Not a recognized word! Try again";
+        text_line_group[3].classList.remove("green_text");
+        text_line_group[3].classList.add("red_text");
+        text_line_group[3].textContent = "Not a recognized word! Try again";
     }
     input.value = "";
+
 };
