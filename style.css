@@ -68,7 +68,8 @@ body {
     0 0 2px rgba(51, 255, 119, 0.8),
     0 0 8px rgba(51, 255, 119, 0.5),
     0 0 18px rgba(16, 185, 80, 0.3);
-}
+    z-index: 3;
+} 
 
 .box {
   position: absolute;
@@ -150,6 +151,15 @@ body::after {
   
   /* Optional: Adds an actual rounded frame look if desired */
   border-radius: 0px; 
+
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(43, 43, 43, 0.25) 4px
+  );
+  z-index: 2;
 }
 
 .no-select {

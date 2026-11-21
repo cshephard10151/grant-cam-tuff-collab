@@ -4,6 +4,7 @@ let input = document.getElementById("input");
 let button = document.getElementById("button");
 
 let last_input;
+var iscommand = false;
 
 input.addEventListener("keydown", function(e){
     if (e.key === "Enter"){
@@ -45,6 +46,7 @@ button.onclick = function(){
         }
     
     if (input.value === "help"){
+        iscommand = true;
         document.getElementById(9).textContent = "\u00A0";
         document.getElementById(8).textContent = "help"
         document.getElementById(7).textContent = "------------------------------------";
@@ -57,12 +59,15 @@ button.onclick = function(){
     }
     
 
-
-    for (let i =9; i>1; i--){
-        document.getElementById(i).textContent = document.getElementById(i-1).textContent;
+    if (iscommand === false){
+        for (let i =9; i>1; i--){
+            document.getElementById(i).textContent = document.getElementById(i-1).textContent;
+        }
+        document.getElementById(1).textContent = input.value;
     }
-    document.getElementById(1).textContent = input.value;
     input.value = "";
+
+    iscommand = false;
 
 
 }
