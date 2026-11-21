@@ -59,19 +59,30 @@ body {
   display: none;
 }
 
-.input_box {
-  font-weight: bolder;
-  font-family: "Google Sans Code", Helvetica, sans-serif;
-  border-radius: 1;
-  margin-top: 30vw;
-}
-
 .text{
     font-size: medium;
     font-weight: 600;
-    margin:0 0 0 20vw;
-    margin-left: 148px !important; /* FIX THE SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
+    color: #33ff77;
+
+    text-shadow: 
+    0 0 2px rgba(51, 255, 119, 0.8),
+    0 0 8px rgba(51, 255, 119, 0.5),
+    0 0 18px rgba(16, 185, 80, 0.3);
 }
+
+.box {
+  position: absolute;
+  margin-top: 20vh;
+  margin-left: 20vw
+}
+
+.input_container {
+  font-weight: bolder;
+  font-family: "Google Sans Code", Helvetica, sans-serif;
+  border-radius: 1;
+  margin-top: 100vh;
+}
+
 
 .green_text {
   color: rgb(0, 170, 0);
@@ -85,15 +96,20 @@ body {
   display: flex;
   position: static;
   align-items: center;
-  margin-left: 225px; /* FIX THE SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
-  margin-top: 20vh;
+  margin-left: 20vw; /* FIX THE SCALING EVENTUALLY, I WANT THE ARROWS TO LINE UP NOT THE BEGINNING OF THE TEXT CAUSE I ADDED TIME */
+  margin-top: 70vh;
   width: 60vw;
 }
 
 .arrow {
   font-size: medium;
   font-weight: 400;
-  color: rgb(0, 170, 0);
+  color: #33ff77;
+
+  text-shadow: 
+  0 0 2px rgba(51, 255, 119, 0.8),
+  0 0 8px rgba(51, 255, 119, 0.5),
+  0 0 18px rgba(16, 185, 80, 0.3);
   font-family: "IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
   margin-right: 8px;
 
@@ -108,7 +124,12 @@ body {
   font-family: "IBM Plex Mono", "Google Sans Code", Helvetica, sans-serif;
   background-color: transparent;
   border: none;
-  color: rgb(0, 170, 0);
+  color: #33ff77;
+
+  text-shadow: 
+  0 0 2px rgba(51, 255, 119, 0.8),
+  0 0 8px rgba(51, 255, 119, 0.5),
+  0 0 18px rgba(16, 185, 80, 0.3);
   caret-shape: block;
 }
 
@@ -119,7 +140,7 @@ body::after {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   
   /* Prevents the shadow from blocking clicks on buttons or links underneath */
   pointer-events: none; 
@@ -131,3 +152,7 @@ body::after {
   border-radius: 0px; 
 }
 
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
+}
