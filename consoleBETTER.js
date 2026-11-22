@@ -3,18 +3,30 @@
 let input = document.getElementById("input");
 let button = document.getElementById("button");
 
-let last_input;
+for (let i = 1; i<17; i++){
+    let p_i = int;
+}
+
+
+let top = ["[A] [B] [C] [D]"];
+let r1 =  [`1 [${p1}] [${p2}] [${p2}] [${p4}]`];
+let r2 =  [`2 [${p5}] [${p6}] [${p7}] [${p8}]`];
+let r3 =  [`3 [${p9}] [${p10}] [${p11}] [${p12}]`];
+let r4 =  [`4 [${p13}] [${p14}] [${p15}] [${p16}]`];
+
+let last_input = "";
 var iscommand = false;
 
 input.addEventListener("keydown", function(e){
     if (e.key === "Enter"){
         e.preventDefault();
         button.click();
-        input.value = "";
     }
-    // if (e.key === "ArrowUp"){
-    //     last_input = input
-    // } WIP
+    if (e.key === "ArrowUp"){
+        console.log(last_input);
+        input.value = last_input;
+        
+    }
 });
 
 
@@ -27,7 +39,11 @@ document.getElementById(8).textContent = "Welcome!";
 document.getElementById(7).textContent = 'run "help" for command help.';
 document.getElementById(6).textContent = 'Begin? Y/N';
 
+
+
 button.onclick = function(){
+    last_input = input.value;
+
     const pattern = /^\([^,]+,\s*[^,]+,\s*[^,]+\)$/;
 
     function isNumeric(val) { 
